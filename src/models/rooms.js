@@ -14,6 +14,10 @@ const roomSchema = new mongoose.Schema({
     pricePerHour:{
         type: Number,
         required: true
+    },
+    bookingStatus:{
+        type: Boolean,
+        default: false
     }
 });
 
