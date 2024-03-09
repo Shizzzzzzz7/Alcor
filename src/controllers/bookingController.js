@@ -67,7 +67,7 @@ const deleteDetails = async(req,res)=>{
 
 const getAllBookingDetails = async(req,res)=>{
     try{
-        const response = await bookingService.deletBooking(req.query);
+        const response = await bookingService.getAllBookingByFilter(req.query);
         return res.status(201).json({
             data: response,
             success: true,
