@@ -19,7 +19,15 @@ const bookingSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    room: Room
+    bookingStatus : {
+        type: String,
+        enum : ['Upcomming', 'Passed'],
+        default: 'Upcomming'
+    },
+    roomNumber: {
+        type: Number,
+        required: true
+    }
 });
 
 const Booking = mongoose.model('Booking', bookingSchema);

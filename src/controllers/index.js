@@ -1,3 +1,4 @@
 module.exports = {
-    RoomController : require("./roomsController")
+    RoomController : require("./roomsController"),
+    BookingController : require("./bookingController")
 }

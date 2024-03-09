@@ -1,3 +1,4 @@
 module.exports = {
-    RoomService : require("./rooms-service")
+    RoomService : require("./rooms-service"),
+    BookingService : require("./booking-service")
 }
