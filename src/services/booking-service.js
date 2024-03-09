@@ -9,7 +9,7 @@ class BookingService{
     async createBooking(data){
         try {
             const booking = await this.bookingRepository.create(data);
-            await mailer(data.userEmail);
+            await mailer(booking);
             return booking;
         } catch (error) {
             console.log("Error Occured in Booking Service");

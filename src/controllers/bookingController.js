@@ -59,7 +59,7 @@ const deleteDetails = async(req,res)=>{
         return res.status(500).json({
             data: {},
             success: false,
-            message: "Unable to update Booking",
+            message: "Unable to delete Booking",
             err:{error}
         });
     }
