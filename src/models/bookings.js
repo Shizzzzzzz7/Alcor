@@ -24,6 +24,11 @@ const bookingSchema = new mongoose.Schema({
         enum : ['Upcomming', 'Passed'],
         default: 'Upcomming'
     },
+    roomType: {
+        type: String,
+        enum: ['A','B','C'],
+        required: true
+    },
     roomNumber: {
         type: Number,
         required: true

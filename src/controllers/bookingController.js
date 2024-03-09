@@ -29,7 +29,7 @@ const updateDetails = async(req,res)=>{
         return res.status(201).json({
             data: response,
             success: true,
-            message: "Booking Created Successfully",
+            message: "Booking Updated Successfully",
             err:{}
         });
     }catch(error){
@@ -38,14 +38,57 @@ const updateDetails = async(req,res)=>{
         return res.status(500).json({
             data: {},
             success: false,
-            message: "Unable to create Booking",
+            message: "Unable to update Booking",
             err:{error}
         });
     }
 }
 
+const deleteDetails = async(req,res)=>{
+    try{
+        const response = await bookingService.deletBooking(req.params.id);
+        return res.status(201).json({
+            data: response,
+            success: true,
+            message: "Booking Deleted Successfully",
+            err:{}
+        });
+    }catch(error){
+        console.log("Error in Booking Controller");
+        console.log(error);
+        return res.status(500).json({
+            data: {},
+            success: false,
+            message: "Unable to update Booking",
+            err:{error}
+        });
+    }
+}
+
+const getAllBookingDetails = async(req,res)=>{
+    try{
+        const response = await bookingService.deletBooking(req.query);
+        return res.status(201).json({
+            data: response,
+            success: true,
+            message: "Booking Details Fetched Successfully",
+            err:{}
+        });
+    }catch(error){
+        console.log("Error in Booking Controller");
+        console.log(error);
+        return res.status(500).json({
+            data: {},
+            success: false,
+            message: "Unable to fetch Booking details",
+            err:{error}
+        });
+    }
+}
 
 module.exports = {
     bookRoom,
-    updateDetails
+    updateDetails,
+    deleteDetails,
+    getAllBookingDetails
 }

@@ -25,6 +25,26 @@ class BookingService{
         }
     }
 
+    async deletBooking(id){
+        try {
+            const response = await this.bookingRepository.delete(id);
+            return response;
+        } catch (error) {
+            console.log("Error Occured in Booking Service");
+            throw error;
+        }
+    }
+
+    async getAllBookingByFilter(data){
+        try {
+            const response = await this.bookingRepository.getAll(data);
+            return response;
+        } catch (error) {
+            console.log("Error Occured in Booking Service");
+            throw error;
+        }
+    }
+
 }
 
 module.exports = BookingService;

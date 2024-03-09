@@ -21,6 +21,26 @@ class BookingRepository{
             throw error;
         }
     }
+
+    async delete(id){
+        try {
+            const response = await Booking.findByIdAndUpdate(id, {bookingStatus: 'Passed'});
+            return response;
+        } catch (error) {
+            console.log("Error Occured in Booking Repository");
+            throw error;
+        }
+    }
+
+    async getAll(data){
+        try {
+            const response = await Booking.find(data);
+            return response;
+        } catch (error) {
+            console.log("Error Occured in Booking Repository");
+            throw error;
+        }
+    }
 }
 
 module.exports = BookingRepository;
