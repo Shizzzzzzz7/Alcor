@@ -4,7 +4,8 @@ const cors= require("cors");
 const cookieParser= require("cookie-parser");
 const dbConnect = require("./config/database");
 const { apiRoomRoutes, apiBookingRoutes } = require("./routes/index");
-const mailer = require("./utils/mailer");
+const { PORT } = require("./config/serverConfig");
+
 
 const app = express();
 
@@ -16,8 +17,8 @@ const createAndSetupServer = async()=>{
     app.use("/api", apiRoomRoutes);
     app.use("/api", apiBookingRoutes);
 
-    app.listen(3000, async()=>{
-        console.log(`Server Started on PORT 3000`);
+    app.listen(PORT, async()=>{
+        console.log(`Server Started on PORT ${PORT}`);
         dbConnect();
     });
 }
