@@ -4,6 +4,7 @@ const cors= require("cors");
 const cookieParser= require("cookie-parser");
 const dbConnect = require("./config/database");
 const { apiRoomRoutes, apiBookingRoutes } = require("./routes/index");
+const mailer = require("./utils/mailer");
 
 const app = express();
 

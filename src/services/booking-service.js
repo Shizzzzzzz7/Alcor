@@ -1,4 +1,5 @@
 const {BookingRepository} = require("../repository/index");
+const mailer = require("../utils/mailer");
 
 class BookingService{
     constructor(){
@@ -8,6 +9,7 @@ class BookingService{
     async createBooking(data){
         try {
             const booking = await this.bookingRepository.create(data);
+            await mailer(data.userEmail);
             return booking;
         } catch (error) {
             console.log("Error Occured in Booking Service");

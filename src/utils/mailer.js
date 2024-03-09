@@ -1,26 +1,30 @@
 var nodemailer = require('nodemailer');
 
+const mailer = async(email)=>{
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'mohit.21ug2013@iiitranchi.ac.in',
+          pass: 'mtrp nlpd rsie hvjs'
+        }
+      });
+      
+      var mailOptions = {
+        from: 'mohit.21ug2013@iiitranchi.ac.in',
+        to: email,
+        subject: 'Booking Confirmation!!!',
+        text: "Dear Guest, We are pleased to confirm your reservation for a hotel room at our establishment for the specified dates. We look forward to hosting you and ensuring your stay is comfortable."
+     };
+
+      try {
+        await transporter.sendMail(mailOptions);
+        console.log("Email Sent Successfully");
+      } catch (error) {
+        console.log("Error Occured");
+        throw error;
+      }
+}
 
 
-var transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: 'youremail@gmail.com',
-    pass: 'yourpassword'
-  }
-});
+module.exports = mailer;
 
-var mailOptions = {
-  from: 'youremail@gmail.com',
-  to: 'myfriend@yahoo.com',
-  subject: 'Sending Email using Node.js',
-  text: 'That was easy!'
-};
-
-transporter.sendMail(mailOptions, function(error, info){
-  if (error) {
-    console.log(error);
-  } else {
-    console.log('Email sent: ' + info.response);
-  }
-});
