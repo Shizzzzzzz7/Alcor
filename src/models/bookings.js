@@ -27,6 +27,11 @@ const bookingSchema = new mongoose.Schema({
     roomNumber: {
         type: String,
         required: true
+    }, 
+    roomType: {
+        type: String,
+        enum: ['A','B','C'],
+        required : true
     }
 });
 

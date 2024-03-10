@@ -13,7 +13,7 @@ const mailer = async(guest)=>{
         from: 'mohit.21ug2013@iiitranchi.ac.in',
         to: guest.userEmail,
         subject: 'Booking Confirmation!!!',
-        text: "Dear [Your Name], /We are thrilled to confirm your reservation for a hotel room at Alcor for the dates of [Check-in Date] to [Check-out Date]. We look forward to welcoming you to our establishment and ensuring that your stay with us is comfortable and enjoyable. Below are the details of your booking:/Hotel Name: Alcor/Check-in Date: [Check-in Date]/Check-out Date: [Check-out Date]/Room Type: [Room Type]. Your room has been reserved under the name of [Your Name]. If there are any changes to your travel plans or if you have any additional requests, please do not hesitate to contact us at [Hotel Contact Information]. Kindly note that the reservation is confirmed, and no further action is required from your end. We eagerly anticipate your arrival and aim to make your stay at [Hotel Name] a memorable one. Should you have any questions or concerns before your arrival, feel free to reach out to us. Warm regards,Team ALcor"
+        text: " Guest, We are pleased to confirm your reservation for a hotel room at our establishment for the specified dates. We look forward to hosting you and ensuring your stay is comfortable."
      };
 
       try {
