@@ -17,9 +17,9 @@ class BookingService{
         }
     }
 
-    async updateBooking(id, newData){
+    async updateBooking(query, newData){
         try {
-            const response = await this.bookingRepository.update(id,newData);
+            const response = await this.bookingRepository.update(query,newData);
             return response;
         } catch (error) {
             console.log("Error Occured in Booking Service");
@@ -27,9 +27,9 @@ class BookingService{
         }
     }
 
-    async deletBooking(id){
+    async deletBooking(query){
         try {
-            const response = await this.bookingRepository.delete(id);
+            const response = await this.bookingRepository.delete(query);
             return response;
         } catch (error) {
             console.log("Error Occured in Booking Service");

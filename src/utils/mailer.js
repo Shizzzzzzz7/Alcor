@@ -13,7 +13,7 @@ const mailer = async(guest)=>{
         from: 'mohit.21ug2013@iiitranchi.ac.in',
         to: guest.userEmail,
         subject: 'Booking Confirmation!!!',
-        text: " Guest, We are pleased to confirm your reservation for a hotel room at our establishment for the specified dates. We look forward to hosting you and ensuring your stay is comfortable."
+        text: `Dear Guest, \nWe are thrilled to confirm your reservation for a hotel room at Alcor for the dates of [Check-in Date] to [Check-out Date]. We look forward to welcoming you to our establishment and ensuring that your stay with us is comfortable and enjoyable.\n`
      };
 
       try {

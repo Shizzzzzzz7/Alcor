@@ -25,7 +25,7 @@ const bookRoom = async(req, res)=>{
 
 const updateDetails = async(req,res)=>{
     try{
-        const response = await bookingService.updateBooking(req.params.id, req.body);
+        const response = await bookingService.updateBooking(req.query, req.body);
         return res.status(201).json({
             data: response,
             success: true,
@@ -46,7 +46,7 @@ const updateDetails = async(req,res)=>{
 
 const deleteDetails = async(req,res)=>{
     try{
-        const response = await bookingService.deletBooking(req.params.id);
+        const response = await bookingService.deletBooking(req.query);
         return res.status(201).json({
             data: response,
             success: true,

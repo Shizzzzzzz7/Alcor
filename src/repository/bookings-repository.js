@@ -12,9 +12,9 @@ class BookingRepository{
         }
     }
 
-    async update(id, newData){
+    async update(query, newData){
         try {
-            const response = await Booking.findByIdAndUpdate(id, newData);
+            const response = await Booking.findOneAndUpdate(query, newData);
             return response;
         } catch (error) {
             console.log("Error Occured in Booking Repository");
@@ -22,9 +22,9 @@ class BookingRepository{
         }
     }
 
-    async delete(id){
+    async delete(query){
         try {
-            const response = await Booking.findByIdAndUpdate(id, {bookingStatus: 'Passed'});
+            const response = await Booking.findOneAndUpdate(query, {bookingStatus: 'Passed'});
             return response;
         } catch (error) {
             console.log("Error Occured in Booking Repository");
