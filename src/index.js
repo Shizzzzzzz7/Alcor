@@ -20,6 +20,7 @@ const createAndSetupServer = async()=>{
     app.listen(PORT, async()=>{
         console.log(`Server Started on PORT ${PORT}`);
         dbConnect();
+        
     });
 }
 

@@ -41,6 +41,30 @@ class BookingRepository{
             throw error;
         }
     }
+
+    async getOne(data){
+        try {
+            const booking = await Booking.findOne({
+                roomNumber: data.roomNumber,
+                $or: [
+                    
+                    { startTime: { $gte: data.startTime, $lte: data.endTime } },
+                    
+                    { endDate: { $gte: data.startTime, $lte: data.endTime } },
+                   
+                    { $and: [{ startTime: { $lte: data.startTime } }, { endTime: { $gte: data.endTime } }] },
+                  ]
+            });
+
+            if(booking)
+            return true;
+            
+            return false
+        } catch (error) {
+            console.log("Error Occured in Booking Repository");
+            throw error;
+        }
+    }
 }
 
 module.exports = BookingRepository;

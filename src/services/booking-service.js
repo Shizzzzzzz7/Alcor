@@ -47,6 +47,15 @@ class BookingService{
         }
     }
 
+    async getBookingByTime(data){
+        try {
+            return await this.bookingRepository.getOne(data);
+        } catch (error) {
+            console.log("Error Occured in Booking Service");
+            throw error;
+        }
+    }
+
 }
 
 module.exports = BookingService;

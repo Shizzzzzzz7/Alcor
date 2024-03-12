@@ -4,6 +4,8 @@ const bookingService = new BookingService();
 
 const bookRoom = async(req, res)=>{
     try {
+        req.body.startTime = new Date(req.body.startTime);
+        req.body.endTime = new Date(req.body.endTime);
         const response = await bookingService.createBooking(req.body);
         return res.status(201).json({
             data: response,
@@ -86,9 +88,31 @@ const getAllBookingDetails = async(req,res)=>{
     }
 }
 
+const checkBooking = async(req,res)=>{
+    try{
+        const response = await bookingService.getBookingByTime(req.body);
+        return res.status(201).json({
+            data: response,
+            success: true,
+            message: "Booking Details Fetched Successfully",
+            err:{}
+        });
+    }catch(error){
+        console.log("Error in Booking Controller");
+        console.log(error);
+        return res.status(500).json({
+            data: {},
+            success: false,
+            message: "Unable to fetch Booking details",
+            err:{error}
+        });
+    }
+}
+
 module.exports = {
     bookRoom,
     updateDetails,
     deleteDetails,
-    getAllBookingDetails
+    getAllBookingDetails,
+    checkBooking
 }
