@@ -65,6 +65,16 @@ class BookingRepository{
             throw error;
         }
     }
+
+    async getData(data){
+        try {
+            const user = await Booking.findOne(data);
+            return user;
+        } catch (error) {
+            console.log("Error Occured in Booking Repository");
+            throw error;
+        }
+    }
 }
 
 module.exports = BookingRepository;

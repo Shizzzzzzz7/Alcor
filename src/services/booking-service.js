@@ -56,6 +56,16 @@ class BookingService{
         }
     }
 
+    async getUserData(data){
+        try {
+            const user = await this.bookingRepository.getData(data);
+            return user;
+        } catch (error) {
+            console.log("Error Occured in Booking Service");
+            throw error;
+        }
+    }
+
 }
 
 module.exports = BookingService;

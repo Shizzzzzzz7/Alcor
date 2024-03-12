@@ -109,10 +109,32 @@ const checkBooking = async(req,res)=>{
     }
 }
 
+const sendUserData = async(req,res)=>{
+    try{
+        const response = await bookingService.getUserData(req.body);
+        return res.status(201).json({
+            data: response,
+            success: true,
+            message: "Booking Details Fetched Successfully",
+            err:{}
+        });
+    }catch(error){
+        console.log("Error in Booking Controller");
+        console.log(error);
+        return res.status(500).json({
+            data: {},
+            success: false,
+            message: "Unable to fetch Booking details",
+            err:{error}
+        });
+    }
+}
+
 module.exports = {
     bookRoom,
     updateDetails,
     deleteDetails,
     getAllBookingDetails,
-    checkBooking
+    checkBooking,
+    sendUserData
 }
